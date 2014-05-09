@@ -2,6 +2,7 @@ package nl.neersel.webflow.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +11,7 @@ import java.util.Set;
  */
 @Entity
 public class Persoon implements Serializable {
-    private final Set<Adres> addessen = new HashSet<>();
+    private Set<Adres> addessen = new HashSet<>();
     private Integer id;
     private String voornaam;
     private String tussenvoegsel;
@@ -63,5 +64,15 @@ public class Persoon implements Serializable {
     @JoinColumn(name = "PERSOON_ID", nullable = false)
     public Set<Adres> getAdressen() {
         return addessen;
+    }
+
+    public Adres findAdres(Date ingangsdatum) {
+        for (Adres adres : addessen) {
+            if (ingangsdatum.equals(adres.getIngangsdatum())) {
+                return adres;
+            }
+        }
+        // No Adres found for that exact date.
+        return null;
     }
 }
