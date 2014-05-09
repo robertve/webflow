@@ -2,6 +2,7 @@ package nl.neersel.webflow.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -9,11 +10,11 @@ import java.util.Set;
  */
 @Entity
 public class Persoon implements Serializable {
+    private final Set<Adres> addessen = new HashSet<>();
     private Integer id;
     private String voornaam;
     private String tussenvoegsel;
     private String achternaam;
-    private Set<Adres> addessen;
 
     /**
      * Gets id (primary key).
@@ -63,12 +64,4 @@ public class Persoon implements Serializable {
     public Set<Adres> getAdressen() {
         return addessen;
     }
-
-    /**
-     * Sets list of <code>Adres</code>sen.
-     */
-    public void setAdressen(Set<Adres> addressen) {
-        this.addessen = addressen;
-    }
-
 }
