@@ -11,7 +11,7 @@ import java.util.Set;
  */
 @Entity
 public class Persoon implements Serializable {
-    private Set<Adres> addessen = new HashSet<>();
+    private Set<Adres> adressen = new HashSet<>();
     private Integer id;
     private String voornaam;
     private String tussenvoegsel;
@@ -63,11 +63,15 @@ public class Persoon implements Serializable {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "PERSOON_ID", nullable = false)
     public Set<Adres> getAdressen() {
-        return addessen;
+        return adressen;
+    }
+
+    public void setAdressen(Set<Adres> adressen) {
+        this.adressen = adressen;
     }
 
     public Adres findAdres(Date ingangsdatum) {
-        for (Adres adres : addessen) {
+        for (Adres adres : adressen) {
             if (ingangsdatum.equals(adres.getIngangsdatum())) {
                 return adres;
             }

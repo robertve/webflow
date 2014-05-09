@@ -39,11 +39,11 @@ class ApplicationConfig {
     public EntityManagerFactory entityManagerFactory() {
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setGenerateDdl(true);
+        vendorAdapter.setGenerateDdl(false);
 
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("nl.neersel.webflow.repository");
+        factory.setPackagesToScan("nl.neersel.webflow.repository", "nl.neersel.webflow.entity");
         factory.setDataSource(dataSource());
         factory.afterPropertiesSet();
 
