@@ -2,6 +2,7 @@ package nl.neersel.webflow;
 
 import nl.neersel.webflow.entity.Persoon;
 import nl.neersel.webflow.repository.PersoonRepository;
+import nl.neersel.webflow.service.PersonService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,8 @@ public class ApplicationConfigTest {
     private UrlBasedViewResolver viewResolver;
     @Autowired
     private PersoonRepository persoonRepository;
+    @Autowired
+    private PersonService personService;
 
     @Test
     public void dataSource() throws Exception {
@@ -56,4 +59,10 @@ public class ApplicationConfigTest {
         List<Persoon> personen = persoonRepository.findAll();
         assertNotNull(personen.get(0));
     }
+
+    @Test
+    public void autowirePersonService() throws Exception {
+        assertNotNull(personService);
+    }
+
 }

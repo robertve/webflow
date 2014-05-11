@@ -1,6 +1,7 @@
 package nl.neersel.webflow.service;
 
 import com.github.springtestdbunit.annotation.DatabaseSetup;
+import nl.neersel.webflow.ApplicationConfig;
 import nl.neersel.webflow.domain.Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,11 +14,11 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = ServiceApplicationConfig.class)
+@ContextConfiguration(classes = ApplicationConfig.class)
 public class PersonServiceImplTest {
 
     @Autowired
-    private PersonServiceImpl personService;
+    private PersonService personService;
 
     @Test
     public void create() throws Exception {
@@ -30,11 +31,12 @@ public class PersonServiceImplTest {
     }
 
     @Test
-    @DatabaseSetup("persoon.xml")
+    @DatabaseSetup("personen.xml")
     public void findAll() throws Exception {
         List<Person> allPersons = personService.findAll();
         assertEquals(1, allPersons.size());
         final Person person0 = allPersons.get(0);
+        assertEquals(new Long(1L), person0.getId());
         assertEquals("Robert", person0.getFirstName());
         assertEquals("van", person0.getPrefix());
         assertEquals("Eersel", person0.getLastName());

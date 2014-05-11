@@ -11,6 +11,7 @@ import nl.neersel.webflow.util.DomainEntityMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
  */
 @Service
 public class PersonServiceImpl implements PersonService {
-    @Autowired
+    @Resource
     private PersoonRepository persoonRepository;
 
     @Autowired

@@ -23,7 +23,7 @@ import javax.sql.DataSource;
 @EnableJpaRepositories
 @EnableTransactionManagement
 @ComponentScan(basePackages = {"nl.neersel.webflow.repository", "nl.neersel.webflow.service", "nl.neersel.webflow.util"})
-class ApplicationConfig {
+public class ApplicationConfig {
 
     @Bean
     public DataSource dataSource() {
