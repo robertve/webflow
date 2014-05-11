@@ -5,5 +5,10 @@
             voornaam="Robert"
             tussenvoegsel="van"
             achternaam="Eersel"/>
+    <Persoon
+            id="2"
+            voornaam="Herman"
+            tussenvoegsel="van"
+            achternaam="Eersel"/>
 </dataset>
 

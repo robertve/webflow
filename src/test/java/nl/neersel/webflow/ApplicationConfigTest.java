@@ -57,7 +57,7 @@ public class ApplicationConfigTest {
     @Test
     public void repositoryGetAllPersonen() throws Exception {
         List<Persoon> personen = persoonRepository.findAll();
-        assertNotNull(personen.get(0));
+        assertNotNull(personen);
     }
 
     @Test
