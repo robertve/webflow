@@ -4,6 +4,7 @@ import nl.neersel.webflow.domain.Address;
 import nl.neersel.webflow.domain.Person;
 import nl.neersel.webflow.entity.Adres;
 import nl.neersel.webflow.entity.Persoon;
+import org.springframework.stereotype.Component;
 
 import java.sql.Date;
 import java.util.Calendar;
@@ -13,6 +14,7 @@ import java.util.Map;
 /**
  * Created by robert on 9-5-14.
  */
+@Component
 public class DomainEntityMapper {
 
     public Adres map(Address address) {

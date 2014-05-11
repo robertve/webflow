@@ -1,4 +1,4 @@
-package nl.neersel.webflow;
+package nl.neersel.webflow.service;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -23,14 +23,14 @@ import javax.sql.DataSource;
 @EnableJpaRepositories
 @EnableTransactionManagement
 @ComponentScan(basePackages = {"nl.neersel.webflow.repository", "nl.neersel.webflow.service", "nl.neersel.webflow.util"})
-class ApplicationConfig {
+class ServiceApplicationConfig {
 
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/webflow");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/webflow_unittest");
         dataSource.setUsername("webflow");
         dataSource.setPassword("webflow");
 
