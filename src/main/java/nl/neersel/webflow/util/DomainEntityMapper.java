@@ -33,7 +33,7 @@ public class DomainEntityMapper {
         if (calendar == null) {
             return null;
         }
-        return (Date) calendar.getTime();
+        return new Date(calendar.getTime().getTime());
     }
 
     public Address map(Adres adres) {

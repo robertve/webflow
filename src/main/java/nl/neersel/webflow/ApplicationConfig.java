@@ -19,6 +19,7 @@ import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
 
 
 /**
@@ -61,14 +62,19 @@ public class ApplicationConfig implements ApplicationContextAware {
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
         factory.setPackagesToScan("nl.neersel.webflow.entity");
-        try {
-            factory.setDataSource(applicationContext.getBean(DataSourceFactoryBean.class).getObject());
-        } catch (Exception e) {
-            throw new RuntimeException("Unable to create data source bean", e);
-        }
+        factory.setDataSource(getDataSource());
         factory.afterPropertiesSet();
 
         return factory.getObject();
+    }
+
+    @Bean(name = "dataSource")
+    public DataSource getDataSource() {
+        try {
+            return applicationContext.getBean(DataSourceFactoryBean.class).getObject();
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to create data source bean", e);
+        }
     }
 
     @Bean
