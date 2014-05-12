@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <Persoon
+            id="1"
+            voornaam="Robert Alexander"
+            tussenvoegsel="van"
+            achternaam="Eersel"/>
+    <Persoon
+            id="2"
+            voornaam="Herman"
+            tussenvoegsel="van"
+            achternaam="Eersel"/>
+
+    <Adres
+            persoon_id="1"
+            straat="Populierenlaan"
+            huisnummer="8"
+            postcode="2925 CT"
+            woonplaats="Krimpen aan den IJssel"
+            ingangsdatum="1973-01-01"
+            einddatum="1997-03-01"/>
+    <Adres
+            persoon_id="1"
+            straat="Lehárstraat"
+            huisnummer="236"
+            postcode="2901 PD"
+            woonplaats="Capelle aan den IJssel"
+            ingangsdatum="1997-03-01"
+            einddatum="2013-02-01"/>
+    <Adres
+            persoon_id="2"
+            straat="Populierenlaan"
+            huisnummer="8"
+            postcode="2925 CT"
+            woonplaats="Krimpen aan den IJssel"
+            ingangsdatum="1973-01-01"
+            einddatum="1992-02-08"/>
+    <Adres
+            persoon_id="1"
+            straat="Westnieuwland"
+            huisnummer="6"
+            postcode="3131 VX"
+            woonplaats="Vlaardingen"
+            ingangsdatum="2013-02-01"/>
+</dataset>
+

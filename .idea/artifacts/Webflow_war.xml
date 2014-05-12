@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Webflow:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="webflow.war">
+      <element id="artifact" artifact-name="Webflow:war exploded" />
+    </root>
+  </artifact>
+</component>
